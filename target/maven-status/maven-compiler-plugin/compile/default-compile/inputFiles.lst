@@ -1,0 +1,8 @@
+/Users/eliran/maigolab_hello/src/main/java/info/dddeurope/lab/Repositories/SocialGraph.java
+/Users/eliran/maigolab_hello/src/main/java/info/dddeurope/lab/utils/dtos/PostPhoto.java
+/Users/eliran/maigolab_hello/src/main/java/info/dddeurope/lab/app/App.java
+/Users/eliran/maigolab_hello/src/main/java/info/dddeurope/lab/utils/dtos/Post.java
+/Users/eliran/maigolab_hello/src/main/java/info/dddeurope/lab/utils/LuceneIndex/InMemoryLuceneIndex.java
+/Users/eliran/maigolab_hello/src/main/java/info/dddeurope/lab/Repositories/PostsIndex.java
+/Users/eliran/maigolab_hello/src/main/java/info/dddeurope/lab/utils/dtos/Event.java
+/Users/eliran/maigolab_hello/src/main/java/info/dddeurope/lab/Repositories/EventQueue.java
