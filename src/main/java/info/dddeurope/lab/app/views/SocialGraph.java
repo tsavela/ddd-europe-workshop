@@ -1,4 +1,4 @@
-package info.dddeurope.lab.Repositories;
+package info.dddeurope.lab.app.views;
 
 import org.jgrapht.*;
 import org.jgrapht.alg.interfaces.ShortestPathAlgorithm.SingleSourcePaths;
