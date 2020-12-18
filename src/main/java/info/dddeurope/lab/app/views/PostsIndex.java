@@ -1,4 +1,4 @@
-package info.dddeurope.lab.Repositories;
+package info.dddeurope.lab.app.views;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import org.apache.lucene.document.SortedDocValuesField;
 import org.apache.lucene.document.Field;
 
 import info.dddeurope.lab.utils.LuceneIndex.InMemoryLuceneIndex;
-import info.dddeurope.lab.utils.dtos.Post;
+import info.dddeurope.lab.app.dtos.Post;
 
 public class PostsIndex {
 

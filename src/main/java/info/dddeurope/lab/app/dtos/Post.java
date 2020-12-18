@@ -1,4 +1,4 @@
-package info.dddeurope.lab.utils.dtos;
+package info.dddeurope.lab.app.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

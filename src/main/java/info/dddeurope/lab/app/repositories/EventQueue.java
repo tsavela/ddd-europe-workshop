@@ -1,11 +1,11 @@
-package info.dddeurope.lab.Repositories;
+package info.dddeurope.lab.app.repositories;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import info.dddeurope.lab.utils.dtos.Event;
+import info.dddeurope.lab.app.common.Event;
 
 public class EventQueue {
 
