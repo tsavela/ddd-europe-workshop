@@ -3,6 +3,12 @@
 Welcome to the DDD with CQRS and Event-sourcing hands-on workshop, hosted by Eliran Natan at the DDD Europe 2021 conference.
 This is your Java starter kit. Please make sure to clone & run it before the session starts. 
 
+## (Optional) Install Maven on Mac using brew:
+
+```
+$ brew install maven
+```
+
 ## Compile
 
 ```
