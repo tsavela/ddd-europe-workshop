@@ -20,11 +20,11 @@ public class UserRepository {
         this.users = new HashMap<>();
     }
 
-    void set(String userId, User user) {
+    public void set(String userId, User user) {
         this.users.put(userId, user);
     }
 
-    User get(String userId) {
+    public User get(String userId) {
         return this.users.get(userId);
     }
 

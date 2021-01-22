@@ -1,26 +1,28 @@
 package info.dddeurope.lab.app.domain.UserAggregate;
 
-/*
-    This is the User entity.
-    It is part of the User aggregate, and its root.
-*/
-
+import info.dddeurope.lab.app.dtos.UserDto;
 
 public class User {
 
-    /*
-        Add fields which compose the state of the User entity
-    */
+    String id;
+    Profile profile;
+    Wall wall;
 
-    User(/* Add arguments for the creation of a user */) {
+    public User(String userId, UserDto userDto) throws Exception {
 
-        // Validate business rules if there are any.
+        this.id = userId;
+
+        this.profile = new Profile(
+            userDto.getFirstName(), 
+            userDto.getLastName(), 
+            userDto.getEmail(), 
+            userDto.getDateOfBirth(), 
+            userDto.getAddress()
+        );
 
     }
 
     void publishPost(String postId) {
-
-        // Validate business rules if there are any.
 
     }
 
@@ -35,5 +37,7 @@ public class User {
         // Validate business rules if there are any.
 
     }
+
+
 
 }

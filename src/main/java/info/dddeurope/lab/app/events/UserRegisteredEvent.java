@@ -1,8 +1,7 @@
 package info.dddeurope.lab.app.events;
 
 import info.dddeurope.lab.app.common.Event;
-import info.dddeurope.lab.app.dtos.User;
-
+import info.dddeurope.lab.app.dtos.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,5 +11,5 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class UserRegisteredEvent extends Event {
     private String userId;
-    private User userDto;
+    private UserDto userDto;
 }

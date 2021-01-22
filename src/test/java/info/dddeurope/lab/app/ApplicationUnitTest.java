@@ -10,6 +10,7 @@ import info.dddeurope.lab.app.commands.RegisterUserCommand;
 import info.dddeurope.lab.app.commandsHandlers.PublishPostCommandHandler;
 import info.dddeurope.lab.app.commandsHandlers.RegisterUserCommandHandler;
 import info.dddeurope.lab.app.dtos.User;
+import info.dddeurope.lab.app.dtos.UserDto;
 import info.dddeurope.lab.app.eventHandlers.UserRegisteredEventHandler;
 import info.dddeurope.lab.app.events.UserRegisteredEvent;
 import info.dddeurope.lab.app.repositories.PostRepository;
@@ -40,10 +41,10 @@ public class ApplicationUnitTest {
         sharingMap = new SharingMap();
 
         // Create a command
-        RegisterUserCommand registerUserCommand = new RegisterUserCommand("eliranna", new User("Eliran", "Natan", "eliran.natan.87@gmail.com", new GregorianCalendar(1987, 8, 10).getTime(), "Loenen aan de Vecht"));
+        RegisterUserCommand registerUserCommand = new RegisterUserCommand("eliranna", new UserDto("Eliran", "Natan", "eliran.natan.87@gmail.com", new GregorianCalendar(1987, 8, 10).getTime(), "Loenen aan de Vecht"));
         
         // Send the command to the corresponding command handler
-        RegisterUserCommandHandler registerUserCommandHandler = new RegisterUserCommandHandler();
+        RegisterUserCommandHandler registerUserCommandHandler = new RegisterUserCommandHandler(userRepository);
         UserRegisteredEvent userRegisteredEvent = registerUserCommandHandler.handle(registerUserCommand);
 
         // Send the event to the corresponding event handler

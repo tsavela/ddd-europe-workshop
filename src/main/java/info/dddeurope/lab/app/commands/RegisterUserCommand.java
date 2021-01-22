@@ -1,8 +1,7 @@
 package info.dddeurope.lab.app.commands;
 
 import info.dddeurope.lab.app.common.Command;
-import info.dddeurope.lab.app.dtos.User;
-
+import info.dddeurope.lab.app.dtos.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,5 +11,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class RegisterUserCommand extends Command {
     private String userId;
-    private User userDto;
+    private UserDto userDto;
+
 }

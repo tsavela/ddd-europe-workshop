@@ -1,26 +1,28 @@
 package info.dddeurope.lab.app.commandsHandlers;
 
+import info.dddeurope.lab.app.commands.RegisterUserCommand;
+import info.dddeurope.lab.app.domain.UserAggregate.User;
+import info.dddeurope.lab.app.dtos.UserDto;
+import info.dddeurope.lab.app.events.UserRegisteredEvent;
+import info.dddeurope.lab.app.repositories.UserRepository;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class RegisterUserCommandHandler {
 
-    /*
-        This is where we handle the RegisterUser command. 
-    */
+    UserRepository userRepository;
 
-    /*
-        STEP (1)
-        Create a new Domain object which reprsents a new user. 
-        Extract the nessesary data from the command.
-        Here you should expect an error to be thrown if a business rule gets violated.
-    */
+    UserRegisteredEvent handle(RegisterUserCommand registerUserCommand) throws Exception {
+        
+        final String userId = registerUserCommand.getUserId();
+        final UserDto userDto = registerUserCommand.getUserDto();
 
-    /*
-        STEP (2)
-        Use the Write Repository to store the new user.
-    */  
-    
-    /*
-        STEP (3)
-        Propogate the change by returning an event. 
-    */      
+        User user = new User(userId, userDto);
+        this.userRepository.set(userId, user);
+        return new UserRegisteredEvent(userId, userDto); 
+        
+    }   
 
 }
