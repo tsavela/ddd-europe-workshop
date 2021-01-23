@@ -1,7 +1,8 @@
 package info.dddeurope.lab.app;
 
+import static org.junit.Assert.assertEquals;
+
 import java.time.LocalDate;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.junit.Before;
@@ -83,11 +84,12 @@ public class ApplicationUnitTest {
         postPublishedEventHandler.handle(postPublishedEvent);
  
         // Send a text search query to find the new post
-        SearchPostByTextQuery searchPostByTextQuery = new SearchPostByTextQuery("Event Sourcing");
+        SearchPostByTextQuery searchPostByTextQuery = new SearchPostByTextQuery("event");
         SearchPostByTextQueryHandler searchPostByTextQueryHandler = new SearchPostByTextQueryHandler(postsIndex);
         List<Document> posts = searchPostByTextQueryHandler.handle(searchPostByTextQuery);
 
-        // assertEquals...
+        assertEquals("6174897", posts.get(0).get("id"));
+        assertEquals("enatan", posts.get(0).get("publisherId"));
 
     }
 
