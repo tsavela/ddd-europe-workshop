@@ -1,6 +1,8 @@
 package info.dddeurope.lab.app.domain.UserAggregate;
 
-import info.dddeurope.lab.app.dtos.UserDto;
+import java.time.LocalDate;
+
+import info.dddeurope.lab.app.domain.PostAggregate.Post;
 
 public class User {
 
@@ -8,22 +10,25 @@ public class User {
     Profile profile;
     Wall wall;
 
-    public User(String userId, UserDto userDto) throws Exception {
+    public User(String userId, String firstName, String lastName, String email, LocalDate dateOfBirth, String address) throws Exception {
 
         this.id = userId;
 
         this.profile = new Profile(
-            userDto.getFirstName(), 
-            userDto.getLastName(), 
-            userDto.getEmail(), 
-            userDto.getDateOfBirth(), 
-            userDto.getAddress()
+            firstName,
+            lastName,
+            email,
+            dateOfBirth,
+            address
         );
 
     }
 
-    void publishPost(String postId) {
+    public void publishPost(Post post) throws Exception {
 
+        if (!post.getAgeLimit().isUnder(this.profile.getAge())) {
+            throw new Exception("The user is not allowed to publish this post due to age limitations");
+        }
     }
 
     void sharePost(String postId) {

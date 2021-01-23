@@ -23,16 +23,21 @@ public class Profile {
         this.lastName = lastName;
         this.email = email;
 
-        if (getAge(dateOfBirth) < 12) {
+        if (computeAge(dateOfBirth) < 12) {
             throw new Exception("User must be at least 12 years old");
         }
 
         this.dateOfBirth = dateOfBirth;
         this.address = address;
-    }    
+    } 
     
-    private int getAge(LocalDate dateOfBirth) {
+    public Age getAge() {
+        return new Age(this.computeAge(this.dateOfBirth));
+    }
+    
+    private int computeAge(LocalDate dateOfBirth) {
         return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
+
      
 }

@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Post {
-    String id;
+public class PostDto {
     String publisherId;
     String title; 
     String body;
+    int minAge;
 }

@@ -1,5 +1,6 @@
 package info.dddeurope.lab.app.commands;
 
+import info.dddeurope.lab.app.dtos.PostDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,8 +9,6 @@ import lombok.EqualsAndHashCode;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class PublishPostCommand {
-    /*
-        Add here the nessesary fields. 
-        HINT: A command should express an intention to change the ststem's state.
-    */     
+    String postId;
+    PostDto postDto;    
 }

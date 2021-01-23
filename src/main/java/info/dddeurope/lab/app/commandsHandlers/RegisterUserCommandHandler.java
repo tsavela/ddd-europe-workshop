@@ -14,12 +14,18 @@ public class RegisterUserCommandHandler {
 
     UserRepository userRepository;
 
-    UserRegisteredEvent handle(RegisterUserCommand registerUserCommand) throws Exception {
+    public UserRegisteredEvent handle(RegisterUserCommand registerUserCommand) throws Exception {
         
         final String userId = registerUserCommand.getUserId();
         final UserDto userDto = registerUserCommand.getUserDto();
 
-        User user = new User(userId, userDto);
+        User user = new User(userId,
+            userDto.getFirstName(),
+            userDto.getLastName(),
+            userDto.getEmail(),
+            userDto.getDateOfBirth(),
+            userDto.getAddress());
+
         this.userRepository.set(userId, user);
         return new UserRegisteredEvent(userId, userDto); 
         

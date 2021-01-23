@@ -20,7 +20,7 @@ public class PostRepository {
         this.posts = new HashMap<>();
     }
 
-    void set(String postId, Post post) {
+    public void set(String postId, Post post) {
         this.posts.put(postId, post);
     }
 
