@@ -5,6 +5,7 @@ import info.dddeurope.lab.app.domain.PostAggregate.Post;
 import info.dddeurope.lab.app.domain.UserAggregate.Age;
 import info.dddeurope.lab.app.domain.UserAggregate.User;
 import info.dddeurope.lab.app.dtos.PostDto;
+import info.dddeurope.lab.app.events.PostPublishedEvent;
 import info.dddeurope.lab.app.repositories.PostRepository;
 import info.dddeurope.lab.app.repositories.UserRepository;
 import lombok.AllArgsConstructor;

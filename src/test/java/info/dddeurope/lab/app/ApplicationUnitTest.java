@@ -2,6 +2,7 @@ package info.dddeurope.lab.app;
 
 import java.time.LocalDate;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,14 +11,20 @@ import info.dddeurope.lab.app.commands.PublishPostCommand;
 import info.dddeurope.lab.app.commands.RegisterUserCommand;
 import info.dddeurope.lab.app.commandsHandlers.PublishPostCommandHandler;
 import info.dddeurope.lab.app.commandsHandlers.RegisterUserCommandHandler;
+import info.dddeurope.lab.app.dtos.PostDto;
 import info.dddeurope.lab.app.dtos.UserDto;
+import info.dddeurope.lab.app.eventHandlers.PostPublishedEventHandler;
 import info.dddeurope.lab.app.eventHandlers.UserRegisteredEventHandler;
+import info.dddeurope.lab.app.events.PostPublishedEvent;
 import info.dddeurope.lab.app.events.UserRegisteredEvent;
+import info.dddeurope.lab.app.queries.SearchPostByTextQuery;
+import info.dddeurope.lab.app.queryHandlers.SearchPostByTextQueryHandler;
 import info.dddeurope.lab.app.repositories.PostRepository;
 import info.dddeurope.lab.app.repositories.UserRepository;
 import info.dddeurope.lab.app.views.PostsIndex;
 import info.dddeurope.lab.app.views.SharingMap;
 import info.dddeurope.lab.app.views.SocialGraph;
+import org.apache.lucene.document.Document;
 
 public class ApplicationUnitTest {
 
@@ -65,19 +72,20 @@ public class ApplicationUnitTest {
     public void shouldPublishPost() throws Exception {
 
         // Create a command
-        PublishPostCommand publishPostCommand = new PublishPostCommand();
+        PublishPostCommand publishPostCommand = new PublishPostCommand("6174897", new PostDto("enatan", "Event Sourcing with Java", "This is a post about event sourcing", 8));
         
         // Send the command to the corresponding command handler
-        PublishPostCommandHandler publishPostCommandHandler = new PublishPostCommandHandler();
+        PublishPostCommandHandler publishPostCommandHandler = new PublishPostCommandHandler(postRepository, userRepository);
         PostPublishedEvent postPublishedEvent = publishPostCommandHandler.handle(publishPostCommand);
 
         // Send the event to the corresponding event handler
         PostPublishedEventHandler postPublishedEventHandler = new PostPublishedEventHandler(postsIndex);
         postPublishedEventHandler.handle(postPublishedEvent);
-
+ 
         // Send a text search query to find the new post
-        SearchPostByTextQuery searchPostByTextQuery = new SearchPostByTextQuery();
-        Post[] posts = new searchPostByTextQueryHandler(postsIndex).handle(searchPostByTextQuery);
+        SearchPostByTextQuery searchPostByTextQuery = new SearchPostByTextQuery("Event Sourcing");
+        SearchPostByTextQueryHandler searchPostByTextQueryHandler = new SearchPostByTextQueryHandler(postsIndex);
+        List<Document> posts = searchPostByTextQueryHandler.handle(searchPostByTextQuery);
 
         // assertEquals...
 

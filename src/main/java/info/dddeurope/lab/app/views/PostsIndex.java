@@ -14,7 +14,6 @@ import org.apache.lucene.document.SortedDocValuesField;
 import org.apache.lucene.document.Field;
 
 import info.dddeurope.lab.utils.LuceneIndex.InMemoryLuceneIndex;
-import info.dddeurope.lab.app.dtos.Post;
 
 public class PostsIndex {
 
@@ -24,13 +23,13 @@ public class PostsIndex {
         this.inMemoryLuceneIndex = new InMemoryLuceneIndex(new RAMDirectory(), new StandardAnalyzer());
     }
 
-    public void indexPost(Post post) {
+    public void indexPost(String postId, String title, String body, String publisherId) {
         Document document = new Document();
-        document.add(new TextField("id", post.getId(), Field.Store.YES));
-        document.add(new TextField("title", post.getTitle(), Field.Store.YES));
-        document.add(new TextField("publisherId", post.getPublisherId(), Field.Store.YES));
-        document.add(new TextField("body", post.getBody(), Field.Store.YES));
-        document.add(new SortedDocValuesField("title", new BytesRef(post.getTitle())));
+        document.add(new TextField("id", postId, Field.Store.YES));
+        document.add(new TextField("title", title, Field.Store.YES));
+        document.add(new TextField("publisherId", publisherId, Field.Store.YES));
+        document.add(new TextField("body", body, Field.Store.YES));
+        document.add(new SortedDocValuesField("title", new BytesRef(title)));
         this.inMemoryLuceneIndex.indexDocument(document);
     }
 
