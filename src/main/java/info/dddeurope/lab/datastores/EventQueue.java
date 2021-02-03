@@ -1,4 +1,4 @@
-package info.dddeurope.lab.app.repositories;
+package info.dddeurope.lab.datastores;
 
 import java.util.ArrayList;
 import java.util.HashMap;
