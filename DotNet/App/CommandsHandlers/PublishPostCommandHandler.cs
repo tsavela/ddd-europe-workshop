@@ -4,8 +4,10 @@ using App.Domain.UserAggregate;
 using App.Events;
 using App.Repositories;
 
-namespace App.CommandsHandlers {
-    public class PublishPostCommandHandler {
+namespace App.CommandsHandlers
+{
+    public class PublishPostCommandHandler
+    {
         readonly PostRepository _postRepository;
         readonly UserRepository _userRepository;
 
@@ -15,7 +17,8 @@ namespace App.CommandsHandlers {
             _userRepository = userRepository;
         }
 
-        public PostPublishedEvent Handle(PublishPostCommand publishPostCommand){
+        public PostPublishedEvent Handle(PublishPostCommand publishPostCommand)
+        {
 
             var postId = publishPostCommand.PostId;
             var postDto = publishPostCommand.PostDto;

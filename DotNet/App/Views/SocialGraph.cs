@@ -4,24 +4,28 @@ using QuickGraph.Algorithms;
 
 namespace App.Views
 {
-    public class SocialGraph {
+    public class SocialGraph
+    {
         readonly BidirectionalGraph<string, Edge<string>> _graph;
 
         public SocialGraph()
         {
             _graph = new BidirectionalGraph<string, Edge<string>>();
         }
-    
-        public void AddPerson(string id) {
+
+        public void AddPerson(string id)
+        {
             _graph.AddVertex(id);
         }
 
-        public void CreateFriendship(string personIdA, string personIdB) {
+        public void CreateFriendship(string personIdA, string personIdB)
+        {
             _graph.AddEdge(new Edge<string>(personIdA, personIdB));
             _graph.AddEdge(new Edge<string>(personIdB, personIdA));
         }
 
-        public void BreakFriendship(string personIdA, string personIdB) {
+        public void BreakFriendship(string personIdA, string personIdB)
+        {
             _graph.RemoveEdge(new Edge<string>(personIdA, personIdB));
             _graph.RemoveEdge(new Edge<string>(personIdB, personIdA));
         }
@@ -32,6 +36,5 @@ namespace App.Views
             paths(userB, out var result);
             return result;
         }
-
     }
 }

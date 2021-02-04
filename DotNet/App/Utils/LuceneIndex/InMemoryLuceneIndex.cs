@@ -10,20 +10,23 @@ using Lucene.Net.Util;
 
 namespace App.Utils.LuceneIndex
 {
-    public class InMemoryLuceneIndex {
+    public class InMemoryLuceneIndex
+    {
 
         private readonly Directory _memoryIndex;
         private readonly Analyzer _analyzer;
 
-        public InMemoryLuceneIndex(Directory memoryIndex, Analyzer analyzer) {
+        public InMemoryLuceneIndex(Directory memoryIndex, Analyzer analyzer)
+        {
             _memoryIndex = memoryIndex;
             _analyzer = analyzer;
         }
 
-        public void IndexDocument(string title, string body) {
-
+        public void IndexDocument(string title, string body)
+        {
             var indexWriterConfig = new IndexWriterConfig(LuceneVersion.LUCENE_48, _analyzer);
-            try {
+            try
+            {
                 using var writer = new IndexWriter(_memoryIndex, indexWriterConfig);
                 var document = new Document
                 {
@@ -33,26 +36,31 @@ namespace App.Utils.LuceneIndex
                 };
 
                 writer.AddDocument(document);
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e.StackTrace);
             }
         }
 
-        public void IndexDocument(Document document) {
-
+        public void IndexDocument(Document document)
+        {
             var indexWriterConfig = new IndexWriterConfig(LuceneVersion.LUCENE_48, _analyzer);
-            try {
+            try
+            {
                 using var writer = new IndexWriter(_memoryIndex, indexWriterConfig);
                 writer.AddDocument(document);
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e.StackTrace);
             }
         }
 
-
-
-        public List<Document> SearchIndex(string inField, string queryString) {
-            try {
+        public List<Document> SearchIndex(string inField, string queryString)
+        {
+            try
+            {
                 var query = new QueryParser(LuceneVersion.LUCENE_48, inField, _analyzer).Parse(queryString);
 
                 var indexReader = DirectoryReader.Open(_memoryIndex);
@@ -66,24 +74,33 @@ namespace App.Utils.LuceneIndex
                 }
 
                 return documents;
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e.StackTrace);
             }
+
             return null;
         }
 
-        public void DeleteDocument(Term term) {
-            try {
+        public void DeleteDocument(Term term)
+        {
+            try
+            {
                 var indexWriterConfig = new IndexWriterConfig(LuceneVersion.LUCENE_48, _analyzer);
                 using var writer = new IndexWriter(_memoryIndex, indexWriterConfig);
                 writer.DeleteDocuments(term);
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e.StackTrace);
             }
         }
 
-        public List<Document> SearchIndex(Query query) {
-            try {
+        public List<Document> SearchIndex(Query query)
+        {
+            try
+            {
                 var indexReader = DirectoryReader.Open(_memoryIndex);
                 var searcher = new IndexSearcher(indexReader);
                 var topDocs = searcher.Search(query, 10);
@@ -95,15 +112,20 @@ namespace App.Utils.LuceneIndex
                 }
 
                 return documents;
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e.StackTrace);
             }
+
             return null;
 
         }
 
-        public List<Document> SearchIndex(Query query, Sort sort) {
-            try {
+        public List<Document> SearchIndex(Query query, Sort sort)
+        {
+            try
+            {
                 var indexReader = DirectoryReader.Open(_memoryIndex);
                 var searcher = new IndexSearcher(indexReader);
                 var topDocs = searcher.Search(query, 10, sort);
@@ -115,9 +137,12 @@ namespace App.Utils.LuceneIndex
                 }
 
                 return documents;
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e.StackTrace);
             }
+
             return null;
         }
     }

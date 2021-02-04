@@ -1,10 +1,3 @@
-
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-
-//@Data
-//@AllArgsConstructor
-
 using NodaTime;
 
 namespace App.DTOs

@@ -1,5 +1,7 @@
-namespace App.CommandsHandlers {
-    public class BecomeFriendOfUserCommandHandler {
+namespace App.CommandsHandlers
+{
+    public class BecomeFriendOfUserCommandHandler
+    {
         /*
             This is where we handle the BecomeFriendOfUser command.
         */

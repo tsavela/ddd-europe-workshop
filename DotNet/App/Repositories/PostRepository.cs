@@ -4,7 +4,7 @@ using App.Domain.PostAggregate;
 namespace App.Repositories
 {
     /*
-        Here we use a simple in-meomory key-map value to represent a document-based database.
+        Here we use a simple in-memory key-map value to represent a document-based database.
         In real-world, you would instead use a real database, such as MongoDB.
     */
 

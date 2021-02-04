@@ -2,18 +2,18 @@ using System.Collections.Generic;
 
 namespace App.Views
 {
-    public class SharingMap {
+    public class SharingMap
+    {
 
         Dictionary<string, string[]> _postToUsers;
-    
+
         public SharingMap()
         {
             _postToUsers = new Dictionary<string, string[]>();
         }
 
-        void UserSharedPost(string postId, string userId) {
-            //_postToUsers[postId];
+        void UserSharedPost(string postId, string userId)
+        {
         }
-
     }
 }
