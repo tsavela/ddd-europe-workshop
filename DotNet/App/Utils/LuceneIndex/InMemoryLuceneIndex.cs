@@ -12,7 +12,6 @@ namespace App.Utils.LuceneIndex
 {
     public class InMemoryLuceneIndex
     {
-
         private readonly Directory _memoryIndex;
         private readonly Analyzer _analyzer;
 
@@ -119,7 +118,6 @@ namespace App.Utils.LuceneIndex
             }
 
             return null;
-
         }
 
         public List<Document> SearchIndex(Query query, Sort sort)

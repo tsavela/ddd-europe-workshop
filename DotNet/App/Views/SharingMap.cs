@@ -4,7 +4,6 @@ namespace App.Views
 {
     public class SharingMap
     {
-
         Dictionary<string, string[]> _postToUsers;
 
         public SharingMap()

@@ -16,7 +16,6 @@ namespace App.CommandsHandlers
 
         public UserRegisteredEvent Handle(RegisterUserCommand registerUserCommand)
         {
-
             var userId = registerUserCommand.UserId;
             var userDto = registerUserCommand.UserDto;
 

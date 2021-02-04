@@ -13,7 +13,6 @@ namespace App.Domain.UserAggregate
 
         public Profile(string firstName, string lastName, string email, LocalDate dateOfBirth, string address)
         {
-
             FirstName = firstName;
             LastName = lastName;
             Email = email;

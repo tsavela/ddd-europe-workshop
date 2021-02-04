@@ -14,8 +14,9 @@ namespace App.QueryHandlers
             _index = index;
         }
 
-        public List<Document> Handle(SearchPostByTextQuery query) {
+        public List<Document> Handle(SearchPostByTextQuery query)
+        {
             return _index.SearchTerm(query.SearchTerm);
+        }
     }
-}
 }

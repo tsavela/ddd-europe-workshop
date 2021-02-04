@@ -19,7 +19,6 @@ namespace App.CommandsHandlers
 
         public PostPublishedEvent Handle(PublishPostCommand publishPostCommand)
         {
-
             var postId = publishPostCommand.PostId;
             var postDto = publishPostCommand.PostDto;
 

@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace App
+﻿namespace App
 {
     class Program
     {
         static void Main(string[] args)
         {
-
         }
     }
 }

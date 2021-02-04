@@ -1,4 +1,6 @@
 namespace App.Common
 {
-    public interface ICommand {}
+    public interface ICommand
+    {
+    }
 }

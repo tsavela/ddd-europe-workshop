@@ -24,7 +24,6 @@ namespace App.Domain.UserAggregate
 
         public void PublishPost(Post post)
         {
-
             if (!post.AgeLimit.IsUnder(Profile.GetAge()))
             {
                 throw new Exception("The user is not allowed to publish this post due to age limitations");

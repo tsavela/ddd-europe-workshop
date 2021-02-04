@@ -7,11 +7,15 @@ namespace App.DataStores
     {
         private readonly Dictionary<string, List<IEvent>> _store = new();
 
-        public void AddEvent(string id, IEvent evt) {
-            if (!_store.TryGetValue(id, out var events)) {
+        public void AddEvent(string id, IEvent evt)
+        {
+            if (!_store.TryGetValue(id, out var events))
+            {
                 events = new List<IEvent> {evt};
                 _store[id] = events;
-            } else {
+            }
+            else
+            {
                 events.Add(evt);
             }
         }

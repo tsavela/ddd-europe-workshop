@@ -54,7 +54,6 @@ namespace App.Tests
         [Fact]
         public void ShouldPublishPost()
         {
-
             // Create a command
             var publishPostCommand = new PublishPostCommand("6174897",
                 new PostDto("enatan", "Event Sourcing with Java", "This is a post about event sourcing", 8));
@@ -87,6 +86,3 @@ namespace App.Tests
         }
     }
 }
-
-
-
