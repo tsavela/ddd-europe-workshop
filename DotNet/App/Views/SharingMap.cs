@@ -11,8 +11,13 @@ namespace App.Views
             _postToUsers = new Dictionary<string, string[]>();
         }
 
-        void UserSharedPost(string postId, string userId)
+        public void UserSharedPost(string postId, string userId)
         {
+        }
+
+        public string[] GetUsersThatSharedPost(string postId)
+        {
+            return new string[0];
         }
     }
 }
