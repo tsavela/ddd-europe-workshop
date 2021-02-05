@@ -8,6 +8,7 @@ namespace App.Domain.UserAggregate
     {
         public string UserId { get; }
         public Profile Profile { get; }
+        public Wall Wall { get; }
 
         public User(string userId, string firstName, string lastName, string email, LocalDate dateOfBirth, string address)
         {
